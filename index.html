@@ -107,6 +107,8 @@
     // Set the request headers
     xhr.setRequestHeader("Authorization", "Bearer " + bearerToken);
     xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+    
 
     // Handle the response
     xhr.onload = function() {
