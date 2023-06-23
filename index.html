@@ -88,47 +88,42 @@
         }
     </style>
 
-<script>
-    // Bearer token
-    const bearerToken = "YOUR_BEARER_TOKEN";
+    <script>
 
-    // Data to send in the request
-    const requestData = {
-      property: "Status",
-      is: "Live"
-    };
+        const url = 'https://api.notion.com/v1/databases/e195632ae76540e0af4370bda7f91eac/query';
+        
+        const token = 'secret_vHzwTSk4Otb9fmGKEv9HtGmTdSl9qB953XLZKyKiiY8';
+        const data = {
+            property: "Status",
+            is: "Live"
+        };
 
-    // Create a new XMLHttpRequest object
-    const xhr = new XMLHttpRequest();
+        fetch(url, {
+            mode: 'no-cors',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+                'Notion-Version': '2021-08-16'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(responseData => {
+                // Process the response data here
+                console.log(responseData);
+            })
+            .catch(error => {
+                // Handle any errors here
+                console.error('Error:', error);
+            });
 
-    // Set the HTTP method and URL
-    xhr.open("POST", "https://api.notion.com/v1/databases/e195632ae76540e0af4370bda7f91eac/query", true);
-
-    // Set the request headers
-    xhr.setRequestHeader("Authorization", "Bearer " + bearerToken);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-    
-
-    // Handle the response
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        // Parse the response data as JSON
-        const responseData = JSON.parse(xhr.responseText);
-
-        const responseContainer = document.getElementById("responseContainer");
-        responseContainer.innerText = responseData;
-      } else {
-        console.error("Request failed with status:", xhr.status);
-      }
-    };
-
-    // Convert the data object to JSON string
-    const jsonData = JSON.stringify(requestData);
-
-    // Send the request
-    xhr.send(jsonData);
-  </script>
+    </script>
 
 </head>
 
