@@ -3,7 +3,30 @@
 <head>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZlcnNpb249JzEuMScgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnIHdpZHRoPSc1MTInIGhlaWdodD0nNTEyJyB4PScwJyB5PScwJyB2aWV3Qm94PScwIDAgMjQgMjQnIHN0eWxlPSdlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTInIHhtbDpzcGFjZT0ncHJlc2VydmUnIGNsYXNzPScnPjxnPjxwYXRoIGQ9J00yMS41IDE0LjExOSAxOC4wMTcgMTIgMjEuNSA5Ljg4MWEzLjE4MSAzLjE4MSAwIDEgMC0zLjM2Mi01LjRMMTUgNi40OVYzYTMgMyAwIDAgMC02IDB2My41ODhMNS44NjIgNC40ODFhMy4xODEgMy4xODEgMCAwIDAtMy4zNjIgNS40TDUuOTgzIDEyIDIuNSAxNC4xMTlhMy4xODEgMy4xODEgMCAwIDAgMy4zNjIgNS40TDkgMTcuNDgxVjIxYTMgMyAwIDAgMCA2IDB2LTMuNThsMy4xMzggMi4xYTMuMTgxIDMuMTgxIDAgMCAwIDMuMzYyLTUuNHonIGZpbGw9JyNlOWMzOTknIG9wYWNpdHk9JzEnIGRhdGEtb3JpZ2luYWw9JyMwMDAwMDAnIGNsYXNzPScnPjwvcGF0aD48L2c+PC9zdmc+">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.95">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Dynamically set viewport based on screen resolution
+        const screenWidth = window.innerWidth;
+        
+        let viewportContent;
+        
+        if (screenWidth >= 1200) {
+          viewportContent = "width=device-width, initial-scale=1";
+        } else if (screenWidth >= 768) {
+          viewportContent = "width=device-width, initial-scale=0.95";
+        } else {
+          viewportContent = "width=device-width, initial-scale=0.9";
+        }
+        
+        // Create or update the meta viewport tag
+        let viewportMeta = document.querySelector('meta[name="viewport"]');
+        if (!viewportMeta) {
+          viewportMeta = document.createElement("meta");
+          viewportMeta.name = "viewport";
+          document.head.appendChild(viewportMeta);
+        }
+        viewportMeta.content = viewportContent;
+    </script>
     <meta name="theme-color" content="#111111">
     <title>Rishabh Sharma Portfolio</title>
     <style>
