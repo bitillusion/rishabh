@@ -37,6 +37,7 @@
         window.addEventListener('wheel', function(e) {
             e.preventDefault();
             window.scrollBy(0, e.deltaY);
+            console.log(e.deltaY)
         }, { passive: false });
     </script>
 </body>
