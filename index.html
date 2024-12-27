@@ -32,6 +32,12 @@
 </head>
 <body>
     <iframe id="myIframe" src="https://rishabh-7k.super.site/"></iframe>
+    <script>
+        // Allow the body to scroll using JS if overflow:hidden is set
+        window.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            window.scrollBy(0, e.deltaY);
+        }, { passive: false });
     </script>
 </body>
 </html>
