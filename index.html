@@ -25,5 +25,20 @@
 </head>
 <body>
     <iframe src="https://rishabh-7k.super.site/"></iframe>
+        <button onclick="changeIframeContent()">Change Iframe Content</button>
+
+    <script>
+        function changeIframeContent() {
+            // Access the iframe
+            const iframe = document.getElementById('myIframe');
+
+            // Ensure the iframe's content is accessible (same-origin policy)
+            const iframeDoc = iframe.contentWindow.document;
+
+            // Modify the iframe content
+            iframeDoc.body.style.backgroundColor = "lightblue";
+            iframeDoc.body.innerHTML = "<h1>Updated Content</h1>";
+        }
+    </script>
 </body>
 </html>
