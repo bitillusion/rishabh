@@ -9,9 +9,9 @@
     <style>
         html, body {
             background-color: #111111;
-            overflow: hidden;
             margin: 0; /* Optional: Remove default margins */
             padding: 0;
+            height: calc(100vh - 1em)
         }
         body::-webkit-scrollbar {
             display: none; /* Chrome, Safari, Edge */
@@ -24,7 +24,7 @@
         }
         iframe {
             width: 100%; /* Adjust width as needed */
-            height: calc(100vh - 2em); /* Adjust height as needed */
+            height: 100%; /* Adjust height as needed */
             border: none; /* Remove iframe border if not needed */
             overflow: auto; /* Ensure iframe has its scrollbar */
         }
@@ -32,13 +32,5 @@
 </head>
 <body>
     <iframe id="myIframe" src="https://rishabh-7k.super.site/"></iframe>
-    <script>
-        // Allow the body to scroll using JS if overflow:hidden is set
-        window.addEventListener('wheel', function(e) {
-            e.preventDefault();
-            window.scrollBy(0, e.deltaY);
-            console.log(e.deltaY)
-        }, { passive: true });
-    </script>
 </body>
 </html>
