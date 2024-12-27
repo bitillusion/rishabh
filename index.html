@@ -12,9 +12,12 @@
             margin: 0; /* Optional: Remove default margins */
             padding: 0;
             height: calc(100vh - 0em);
-            overflow: hidded ;
+            overflow: hidden ;
         }
         body::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Edge */
+        }
+        html::-webkit-scrollbar {
             display: none; /* Chrome, Safari, Edge */
         }
         body {
