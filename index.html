@@ -1,23 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-      window.onload = function() {
-        var iframe = document.getElementById('myIframe');
-        var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-        
-        // Scroll to the bottom
-        iframe.contentWindow.scrollTo(0, iframeDocument.body.scrollHeight);
-    
-        // Scroll back to the top after a short delay
-        setTimeout(function() {
-          iframe.contentWindow.scrollTo(0, 0);
-          console.log("done scroling")
-        }, 1000); // 1 second delay
-      };
-
-
-        
+    <script>      
         // Extract the 'src' parameter from the URL
         const urlParams = new URLSearchParams(window.location.search);
         const src = urlParams.get('src');
@@ -122,5 +106,6 @@
 </head>
 <body>
     <iframe id="myIframe" src="https://rishabh-7k.super.site/"></iframe>
+    <iframe src="https://tally.so/embed/wgWKQ4?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"></iframe>
 </body>
 </html>
