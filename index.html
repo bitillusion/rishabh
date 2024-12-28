@@ -1,6 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        // Extract the 'src' parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const src = urlParams.get('src');
+        if (src) {
+            try {
+                // Parse the base domain from the URL
+                const baseDomain = new URL(src).hostname;
+
+                fetch(src)
+                    .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok: ${response.statusText}`);
+                    }
+                    return response.text(); // Or response.json() if expecting JSON data
+                    })
+                    .then(data => {
+                    console.log("Data fetched successfully:", data);
+                    })
+                    .catch(error => {
+                    console.error("Error fetching the URL:", error);
+                    });
+
+                // Set the document title to the base domain
+                if (window.history && window.history.replaceState) {
+                    // Get the current URL
+                    const urlWithoutParams = window.location.origin + window.location.pathname;
+
+                    // Update the URL in the address bar without reloading the page
+                    window.history.replaceState(null, '', urlWithoutParams);
+                }
+            } catch (error) {
+                console.error("Invalid URL in 'src' parameter:", error);
+            }
+        }
+    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EKTGNKPR6J"></script>
     <script>
