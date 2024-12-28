@@ -2,18 +2,19 @@
 <html lang="en">
 <head>
     <script>
-  window.onload = function() {
-    var iframe = document.getElementById('myIframe');
-    var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+      window.onload = function() {
+        var iframe = document.getElementById('myIframe');
+        var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+        
+        // Scroll to the bottom
+        iframe.contentWindow.scrollTo(0, iframeDocument.body.scrollHeight);
     
-    // Scroll to the bottom
-    iframe.contentWindow.scrollTo(0, iframeDocument.body.scrollHeight);
-
-    // Scroll back to the top after a short delay
-    setTimeout(function() {
-      iframe.contentWindow.scrollTo(0, 0);
-    }, 1000); // 1 second delay
-  };
+        // Scroll back to the top after a short delay
+        setTimeout(function() {
+          iframe.contentWindow.scrollTo(0, 0);
+          console.log("done scroling")
+        }, 1000); // 1 second delay
+      };
 
 
         
