@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
     <script>
-fetch('https://tally.so/embed/wgWKQ4?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1', {
-  method: 'GET',
-  mode: 'no-cors',
-})
-  .then(response => {
-    // The response object will be opaque in 'no-cors' mode, meaning you can't access the content directly
-    console.log('Request completed, but cannot access response content due to CORS restrictions');
-  })
-  .catch(error => {
-    console.error('Fetch error:', error);
-  });
+  window.onload = function() {
+    var iframe = document.getElementById('myIframe');
+    var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+    
+    // Scroll to the bottom
+    iframe.contentWindow.scrollTo(0, iframeDocument.body.scrollHeight);
+
+    // Scroll back to the top after a short delay
+    setTimeout(function() {
+      iframe.contentWindow.scrollTo(0, 0);
+    }, 1000); // 1 second delay
+  };
 
 
         
